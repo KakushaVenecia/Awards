@@ -1,10 +1,7 @@
-{%extends 'base.html'%}
-
+{% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {%block content%}
-
-<body>
-    <div class="container">
+  <div class="container">
     <div id="card">
         <div id="card-content">
             <div id="card-title">
@@ -14,13 +11,10 @@
             <form action="" method='post'>
                 {%csrf_token%}
                 {{register_form|crispy}}
-                <input type="submit" value="SignUp" class="mt-2 btn btn-primary w-100 disabled" id="submit-btn">
+                <input type="submit" value="SignUp" class="mt-2 btn btn-primary w-60 disabled" id="submit-btn">
                 <br>
-                <a href="{%url 'userlogin'%}" id="signup">Have an account? Login</a>
-            </form>
-        
-        </div>
-    </div>
-</body>
+            </form> 
+            <a href="{%url 'userlogin'%}" id="signup">Have an account? Login</a>
+        </div>     
 </div>
 {%endblock%}

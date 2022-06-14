@@ -12,8 +12,6 @@ from rest_framework.views import APIView
 from .serializer import ProfileSerializer, ProjectSerializer
 
 # Create your views here
-
-
 def register(request):
     if request.method=='POST':
         form =newUserForm(request.POST)
@@ -56,15 +54,19 @@ def project_details(request, pk):
     design_rating_total=0
     content_rating_total=0
     usability_rating_total=0
-    for rating in ratings:
-       design_rating_total+=rating.designrate
-       content_rating_total+=rating.contentrate
-       usability_rating_total+=rating.usabilityrate
-       count = count+1
+    design_rating_avg=0
+    content_rating_avg =0
+    usability_rating_avg =0
+    if ratings:
+        for rating in ratings:
+            design_rating_total+=rating.designrate
+            content_rating_total+=rating.contentrate
+            usability_rating_total+=rating.usabilityrate
+            count = count+1
 
-    design_rating_avg = design_rating_total/count
-    content_rating_avg = content_rating_total/count
-    usability_rating_avg = usability_rating_total/count
+            design_rating_avg = design_rating_total/count
+            content_rating_avg = content_rating_total/count
+            usability_rating_avg = usability_rating_total/count
 
     if request.method == 'POST':
         form=ReviewForm(request.POST)
@@ -124,7 +126,7 @@ def rated(request, id):
 #         'user_prof': user_prof,
 #     }
 #     return render(request, 'userprofile.html', params)
-
+@login_required(login_url='userlogin')
 def profile(request):
     user=request.user
     my_profile=Profile.objects.get(user=user)
@@ -170,7 +172,7 @@ def search_project(request):
 def signout(request):
     logout(request)
     messages.success(request,"You have logged out successfuly")
-    return redirect ('project')
+    return redirect ('projects')
 
 class ProfileList(APIView):
     def get(self, request, format=None):
