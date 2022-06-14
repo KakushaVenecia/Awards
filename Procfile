@@ -1,1 +1,1 @@
-web: gunicorn projectvote.wsgi
+web: gunicorn votesettings.wsgi
