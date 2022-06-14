@@ -47,6 +47,7 @@ def projects(request):
     projects =Project.objects.all()
     return render(request, 'project.html', {"projects":projects})
 
+@login_required(login_url='login')
 def project_details(request, pk):
     project = Project.objects.get(pk=pk)
     user=request.user
@@ -82,6 +83,7 @@ def main(request):
     projects = Project.objects.all()
     return render(request, 'index.html',{"projects":projects })
 
+@login_required(login_url='login')
 def post(request):
     projects = Project.objects.all()
     print(projects)
@@ -93,7 +95,7 @@ def post(request):
             project.user = request.user
             project.save()
             messages.success(request, f'Successfully uploaded your pic!')
-            return redirect('/')
+            return redirect('projects')
     else:
         form = PostForm()
     return render(request, 'post.html' ,{"projects":projects[::-1], "form": form, "users": users})
@@ -113,15 +115,15 @@ def rated(request, id):
         form=ReviewForm()
     return render(request,'rate.html',{"form": form})
 
-
-def user_profile(request, username):
-    user_prof = get_object_or_404(User, username=username)
-    if request.user == user_prof:
-        return redirect('profile', username=request.user.username)
-    params = {
-        'user_prof': user_prof,
-    }
-    return render(request, 'userprofile.html', params)
+# @login_required(login_url='login')
+# def user_profile(request, username):
+#     user_prof = get_object_or_404(User, username=username)
+#     if request.user == user_prof:
+#         return redirect('profile', username=request.user.username)
+#     params = {
+#         'user_prof': user_prof,
+#     }
+#     return render(request, 'userprofile.html', params)
 
 def profile(request):
     user=request.user
@@ -149,6 +151,7 @@ def update_profile(request):
     }
     return render(request, 'update.html', contex)
 
+@login_required(login_url='login')
 def search_project(request):
     if request.method == 'GET':
         name = request.GET.get("title")
@@ -166,8 +169,8 @@ def search_project(request):
 
 def signout(request):
     logout(request)
-    messages.success(request,"You have logged out, we will be glad to have you back again")
-    return redirect ("login")
+    messages.success(request,"You have logged out successfuly")
+    return redirect ('project')
 
 class ProfileList(APIView):
     def get(self, request, format=None):
