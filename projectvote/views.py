@@ -45,7 +45,7 @@ def projects(request):
     projects =Project.objects.all()
     return render(request, 'project.html', {"projects":projects})
 
-@login_required(login_url='login')
+@login_required(login_url='userlogin')
 def project_details(request, pk):
     project = Project.objects.get(pk=pk)
     user=request.user
