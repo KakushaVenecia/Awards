@@ -35,6 +35,6 @@ Static folder problems with displaying images
 
 
 ### License
-
+ [MIT License](https://github.com/KakushaVenecia/Awards/blob/master/LICENCE/)
 
 Copyright (c) 2022
