@@ -17,7 +17,7 @@ urlpatterns = [
     url(r'^search$', views.search_project, name='search'),
     url(r'^api/profile/$', views.ProfileList.as_view()),
     url(r'^api/project/$', views.ProjectList.as_view()), 
-    url(r'signout/$',views.signout, name='signout'),
+    url(r'signout$',views.signout, name='signout'),
 
     
 ]
