@@ -1,3 +1,4 @@
+{%load bootstrap4%}
 {% load crispy_forms_tags %}
 {%block content%}
 <div class="container" style="padding-left: 100px;">
@@ -8,10 +9,13 @@
             <br>
             <br>
             {{project.description }}
+            
             <h2>Ratings</h2>
-             <h4>Design Rating</h4>{{design_rating_avg|floatformat:2}} &nbsp; <h4>Content Rating</h4>
-             {{content_rating_avg|floatformat:2}} &nbsp;
-            <h4>Usability Rating</h4>{{usability_rating_avg|floatformat:2}}
+                    <h4>Design Rating</h4>{{design_rating_avg|floatformat:2}} &nbsp; <h4>Content Rating</h4>
+                    {{content_rating_avg|floatformat:2}} &nbsp;
+                    <h4>Usability Rating</h4>{{usability_rating_avg|floatformat:2}}
+                </div>
+            </div>       
         
             <br>
             <br>

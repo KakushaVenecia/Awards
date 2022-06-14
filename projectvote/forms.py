@@ -31,7 +31,6 @@ class PostForm(forms.ModelForm):
 
 
 class ReviewForm(forms.ModelForm):
-    text=forms.CharField(widget=forms.Textarea(attrs={'class': 'materialize-textarea'}), required=False)
     usabilityrate=forms.ChoiceField(choices=RATE_CHOICES, widget=forms.Select(),required=True)
     contentrate=forms.ChoiceField(choices=RATE_CHOICES, widget=forms.Select(),required=True)
     designrate=forms.ChoiceField(choices=RATE_CHOICES, widget=forms.Select(),required=True)
@@ -39,7 +38,7 @@ class ReviewForm(forms.ModelForm):
 
     class Meta:
         model=Rate
-        fields=( 'usabilityrate', 'contentrate', 'designrate', 'text')
+        fields=( 'usabilityrate', 'contentrate', 'designrate')
 
 
 class UpdateUserForm(forms.ModelForm):

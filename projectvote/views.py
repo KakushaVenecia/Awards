@@ -33,7 +33,7 @@ def userlogin(request):
                 if user is not None:
                     login(request, user)
                     messages.info(request, "Login Successful")
-                    return redirect('index')
+                    return redirect('projects')
                 else:
                     messages.error(request, "Invalid Username or Password")
             else:
