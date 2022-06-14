@@ -83,7 +83,7 @@ def main(request):
     projects = Project.objects.all()
     return render(request, 'index.html',{"projects":projects })
 
-@login_required(login_url='login')
+@login_required(login_url='userlogin')
 def post(request):
     projects = Project.objects.all()
     print(projects)
@@ -130,7 +130,7 @@ def profile(request):
     my_profile=Profile.objects.get(user=user)
     return render(request,"profile.html",{'my_profile':my_profile,"user":user})
 
-@login_required(login_url='login')
+@login_required(login_url='userlogin')
 def update_profile(request):
     
     if request.method == 'POST':
@@ -151,7 +151,7 @@ def update_profile(request):
     }
     return render(request, 'update.html', contex)
 
-@login_required(login_url='login')
+@login_required(login_url='userlogin')
 def search_project(request):
     if request.method == 'GET':
         name = request.GET.get("title")
