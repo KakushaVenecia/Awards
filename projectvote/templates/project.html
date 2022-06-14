@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{%block content%}
+<br>
+    <div class="container-fluid" >
+        <div class="row" style="margin-top: 100px;">
+            {% for project in projects %}
+            <div class="col-md-4">
+                    <img src="{{project.photo.url}}" style="width:300px; height:200px" alt="" /></a> 
+                    <a href="{% url 'project-details' project.pk %}" class="btn"
+                     style="background-color: #F4E7EF; align-content:flex-end; margin-bottom: 5px;">
+                     Details</a>
+            </div>
+            {%endfor%}
+        </div>
+        <br>
+    </div>
+
+</body>
+
+</html>
+{%endblock%}>
