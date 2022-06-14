@@ -1,16 +1,8 @@
+{%extends 'base.html'%}
 {%load bootstrap4 %}
 {% block content%}
-<section style="background-color: rgb(238, 238, 238);" class="profile">
-    <div class="container py-5">
-        <div class="row">
-            <div class="col">
-                <nav aria-label="breadcrumb" class="bg-light rounded-3 p-3 mb-4">
-                    <ol class="breadcrumb mb-0">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                    </ol>
-                </nav>
-            </div>
-        </div>
+<div class="container">
+    
         <div class="row">
             <div class="col-lg-4">
                 <div class="card mb-4">
@@ -18,7 +10,6 @@
                         {% if my_profile.profile_pic%}
                         <img src="{{my_profile.profile_pic.url}}" alt="profile_picture" class="img-fluid"
                             style="width: 200px; border-radius: 60px;">
-
                         {% else%}
                         <h1>No Image</h1>
                         {% endif %}
@@ -53,7 +44,8 @@
             </div>
         </div>
     </div>
-    <li style="list-style-type: none"><a class="dropdown-item" href="{% url 'update'  %}">Update Profile</a></li>
+    <br>
+    <li style="list-style-type: none; margin-right: 10%;"><a class="dropdown-item" href="{% url 'update'  %}">Update Profile</a></li>
 </section>
-
+</div>
 {% endblock%}

@@ -7,7 +7,7 @@ from django.dispatch import receiver
 
 class Profile(models.Model):
     name=models.CharField(blank=True,max_length=120)
-    profile_pic=models.ImageField(upload_to='pictures/',default='default.png')
+    profile_pic=models.ImageField(upload_to='media/',default='default.png')
     bio=models.TextField(max_length=400,blank=True)
     location=models.CharField(max_length=100)
     user = models.OneToOneField(User, on_delete=models.CASCADE,  related_name='profile')
@@ -58,7 +58,7 @@ class Category (models.Model):
 
 
 class Project(models.Model):
-    photo = models.ImageField(upload_to ='pictures/')
+    photo = models.ImageField(upload_to ='media/')
     name = models.CharField(max_length =60)
     description = models.CharField(max_length =300)
     created_at=models.DateField(auto_now_add=True, null=True)
