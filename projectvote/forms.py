@@ -29,6 +29,7 @@ class PostForm(forms.ModelForm):
         fields = ('photo', 'name', 'description')
 
 
+
 class ReviewForm(forms.ModelForm):
     text=forms.CharField(widget=forms.Textarea(attrs={'class': 'materialize-textarea'}), required=False)
     usabilityrate=forms.ChoiceField(choices=RATE_CHOICES, widget=forms.Select(),required=True)
@@ -42,7 +43,7 @@ class ReviewForm(forms.ModelForm):
 
 
 class UpdateUserForm(forms.ModelForm):
-    email=forms.EmailField(max_length=254,help_text='Required.Inform a valid email addres')
+    email=forms.EmailField(max_length=254,help_text='Required.Inform a valid email address')
     class Meta:
         model= User
         fields=('username','email')
