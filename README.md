@@ -2,7 +2,7 @@
 
 ## Description
 
-Peerrate is an application which allows developers to post their projects, rate other developes and also see an average of how other developers rate them.
+Peerrate is an application which allows developers to post their projects, rate other developers and also see an average of how other developers rate them.
 
 ## Author
 
